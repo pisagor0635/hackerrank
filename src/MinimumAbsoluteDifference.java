@@ -12,6 +12,25 @@ public class MinimumAbsoluteDifference {
     }
 
     public static int minimumAbsoluteDifference(List<Integer> arr) {
+
+        /* My first approach - there is a performance problem (Time exceed)
+        int minAbsDif = Integer.MAX_VALUE;
+
+        if(arr.stream().distinct().collect(Collectors.toList()).size() != arr.size()){
+            return 0;
+        }
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = i + 1; j < arr.size(); j++) {
+                int tempDifference = Math.abs(arr.get(i) - arr.get(j));
+                if (tempDifference < minAbsDif) {
+                    minAbsDif = tempDifference;
+                }
+            }
+        }
+        return minAbsDif;
+         */
+
+
         int minAbsDif = Integer.MAX_VALUE;
         List<Integer> sorted = arr.stream().sorted().distinct().collect(Collectors.toList());
         if (sorted.size() != arr.size()) {
